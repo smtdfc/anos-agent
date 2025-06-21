@@ -31,7 +31,7 @@ class AnosAgent:
   
   def prompt(self,query: str) -> str:
     try:
-        return agent.run(query)
+        return self.agent.run(query)
     except Exception as e:
         print(e)
         return "Error when calling model !"
