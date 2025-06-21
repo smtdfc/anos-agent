@@ -6,7 +6,7 @@ providers ={
   ]
 }
 
-def get_llm_model(provider:str,model_name:name)-> any:
+def get_llm_model(provider:str,model_name:str)-> any:
   if not providers.get(provider, None):
     raise Exception(f'Unsupport provider {provider}')
   
