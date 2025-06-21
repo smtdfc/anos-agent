@@ -1,4 +1,4 @@
-from .models import Project 
+from models import Project 
 from datetime import datetime
 import os
 import json
