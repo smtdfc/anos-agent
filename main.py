@@ -1,5 +1,8 @@
 from core import AnosAgent,get_llm_model
+from getpass import getpass
+import os
 
+os.environ["GOOGLE_API_KEY"] = getpass("Your API key: ")
 
 agent = AnosAgent(
   get_llm_model('google','gemini-2.5-flash')
