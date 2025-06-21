@@ -1,4 +1,5 @@
 from langchain_core.tools import BaseTool
+from work import  ProjectManagement
 from typing import Optional, Type,Union
 from pydantic import BaseModel
 from .schema import *
@@ -13,6 +14,13 @@ class ProjectQuery(BaseTool):
             ProjectQueryAddFileSchema,
             ProjectQueryRemoveFileSchema,
             ProjectQueryInfoSchema,
-            ProjectQueryMoveFileSchema
-    ]) -> str:
-        return f""
+            ProjectQueryMoveFileSchema,
+            ProjectQueryCreateSchema
+        ]
+    ) -> any:
+        try:
+            if query.type == 'create':
+                return ProjectManagement.create(query.project_name)
+            return f""
+        except Exception as e:
+            return f"Error: Unable to complete action: {str(e)}"

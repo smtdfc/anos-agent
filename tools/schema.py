@@ -18,11 +18,17 @@ class ProjectQueryMoveFileSchema(BaseModel):
 class ProjectQueryInfoSchema(BaseModel):
   type: str = 'project_info'
 
+class ProjectQueryCreateSchema(BaseModel):
+  type: str = 'create'
+  project_name:str
+
+
 
 class ProjectQueryArgSchema(BaseModel):
   query: Union[
     ProjectQueryAddFileSchema,
     ProjectQueryRemoveFileSchema,
     ProjectQueryInfoSchema,
-    ProjectQueryMoveFileSchema
+    ProjectQueryMoveFileSchema,
+    ProjectQueryCreateSchema
   ] = Field(..., description='Query')

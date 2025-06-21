@@ -1,4 +1,4 @@
-from core import AnosAgent,get_llm_model
+from ai import AnosAgent,get_llm_model
 from getpass import getpass
 import os
 
