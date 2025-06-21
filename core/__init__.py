@@ -33,4 +33,5 @@ class AnosAgent:
     try:
         return agent.run(query)
     except Exception as e:
+        print(e)
         return "Error when calling model !"
