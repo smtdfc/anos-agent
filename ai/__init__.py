@@ -21,7 +21,7 @@ class AnosAgent:
       }
     )
   
-  def build_prefix(project_name: str) -> str:
+  def build_prefix(self,project_name: str) -> str:
      return f"""
   You are a Code Agent, specialized in analyzing, generating, and refactoring code.
   You are currently working on the project: {project_name}
