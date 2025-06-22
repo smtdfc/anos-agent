@@ -6,7 +6,7 @@ from .schema import *
 
 class ProjectQuery(BaseTool):
     name: str = "project_query"
-    description: str = "Query project: create files, remove files, move files, get project info"
+    description: str = "Query project: create project, create files, remove files, move files, get project info"
 
     def _run(
         self, 
@@ -19,7 +19,7 @@ class ProjectQuery(BaseTool):
         ]
     ) -> any:
         try:
-            if query.type == 'create':
+            if query.type == 'create_project':
                 return ProjectManagement.create(query.project_name)
             return f""
         except Exception as e:

@@ -19,7 +19,7 @@ class ProjectQueryInfoSchema(BaseModel):
   type: str = 'project_info'
 
 class ProjectQueryCreateSchema(BaseModel):
-  type: str = 'create'
+  type: str = 'create_project'
   project_name:str
 
 
