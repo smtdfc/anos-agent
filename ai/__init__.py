@@ -36,7 +36,7 @@ class AnosAgent:
 
   def change_project(self, project: str)-> str:
      self.agent = initialize_agent(
-        tools=[ProjectQuery()],
+        tools=[CreateProjectTool(self)],
         llm=self.llm,
         agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
         memory=self.memory,
