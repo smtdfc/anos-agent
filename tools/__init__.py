@@ -1,6 +1,6 @@
 from langchain_core.tools import BaseTool
 from work import ProjectManagement
-from typing import Union
+from typing import Union,Type
 from pydantic import BaseModel, Field
 from .schema import *
 
