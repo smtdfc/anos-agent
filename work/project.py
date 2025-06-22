@@ -20,7 +20,7 @@ class ProjectManagement:
       raise Exception(f'Cannot create project: Dir {name} are ready exist !')
     
     os.mkdir(name)
-    create_config_file(f'./${name}',name)
+    create_config_file(f'./{name}',name)
     
     return Project(
       name=name
