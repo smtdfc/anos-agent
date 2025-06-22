@@ -9,7 +9,7 @@ class AnosAgent:
     self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     self.agent = initialize_agent(
       tools=[
-        CreateProjectTool()
+        CreateProjectTool(self)
       ],
       llm=llm,
       agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,

@@ -7,10 +7,15 @@ import logging
 
 class CreateProjectTool(BaseTool):
     name: str = "create_project"
-    description:str = 'Create a new project'
-    
-    args_schema: Type[BaseModel] = CreateProjectSchema  
+    description: str = "Create a new project"
+    args_schema: Type[BaseModel] = CreateProjectSchema
 
-    def _run(self, name:str) -> any:
+    def __init__(self, agent, **kwargs):
+        self.agent = agent 
+        super().__init__(**kwargs)  
+
+    def _run(self, name: str) -> any:
         logging.info(f'Creating project: {name}')
-        return ProjectManagement.create(name)
+        result = self.project_manager.create(name)
+        self.agent.change_project(name)
+        return result
