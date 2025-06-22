@@ -3,6 +3,8 @@ from work import  ProjectManagement
 from typing import Optional, Type,Union
 from pydantic import BaseModel
 from .schema import *
+import logging
+
 
 class ProjectQuery(BaseTool):
     name: str = "project_query"
@@ -20,6 +22,7 @@ class ProjectQuery(BaseTool):
     ) -> any:
         try:
             if query.type == 'create_project':
+                logging.info(f'Creating project:{query.project_name}')
                 return ProjectManagement.create(query.project_name)
             return f""
         except Exception as e:
