@@ -8,7 +8,7 @@ from .schema import *
 class ProjectQuery(BaseTool):
     name: str = "project_query"
     description: str = "Query project: create project, create files, remove files, move files, get project info"
-    args_schema: Type[BaseModel] = ProjectQueryArgs  
+    args_schema: Type[BaseModel] = ProjectQueryArgSchema  
 
     def _run(self, query: BaseModel) -> any:
         try:
