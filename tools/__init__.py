@@ -7,7 +7,7 @@ from .schema import *
 
 class ProjectQuery(BaseTool):
     name: str = "project_query"
-    description = (
+    description:str = (
         "Use this tool to manage a project. The `query` field must be an object with a `type` key.\n"
         "Available query types:\n"
         "- 'create_project': create a project, requires 'project_name'\n"
