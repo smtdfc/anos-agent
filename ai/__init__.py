@@ -6,11 +6,14 @@ from tools import CreateProjectTool
 
 class AnosAgent:
   def __init__(self,llm):
+    self.llm = llm
+    self.tools = [
+      CreateProjectTool(self)
+    ]
+    
     self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     self.agent = initialize_agent(
-      tools=[
-        CreateProjectTool(self)
-      ],
+      tools=self.tools,
       llm=llm,
       agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
       memory=self.memory,
@@ -36,7 +39,7 @@ class AnosAgent:
 
   def change_project(self, project: str)-> str:
      self.agent = initialize_agent(
-        tools=[CreateProjectTool(self)],
+        tools=self.tools,
         llm=self.llm,
         agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
         memory=self.memory,
