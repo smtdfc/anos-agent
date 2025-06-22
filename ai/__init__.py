@@ -37,7 +37,7 @@ class AnosAgent:
   Wait for the tool's response before proceeding.
   """
 
-  def change_project(self, project: str)-> str:
+  def change_project(self, project_name: str)-> str:
      self.agent = initialize_agent(
         tools=self.tools,
         llm=self.llm,
