@@ -7,7 +7,7 @@ import json
 def create_config_file(path: str, name:str) -> None:
   config ={
     "name":name,
-    "create_time":datetime.now()
+    "create_time":str(datetime.now())
   }
   
   with open(f'{path}/.anos_agent.json',mode='w+') as f:
