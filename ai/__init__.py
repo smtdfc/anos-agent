@@ -2,14 +2,14 @@ import os
 from langchain.agents import initialize_agent, AgentType
 from langchain.memory import ConversationBufferMemory
 from .llm import *
-from tools import ProjectQuery
+from tools import CreateProjectTool
 
 class AnosAgent:
   def __init__(self,llm):
     self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     self.agent = initialize_agent(
       tools=[
-        ProjectQuery()
+        CreateProjectTool()
       ],
       llm=llm,
       agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
