@@ -8,7 +8,8 @@ class AnosAgent:
   def __init__(self,llm):
     self.llm = llm
     self.tools = [
-      CreateProjectTool(self)
+      CreateProjectTool(self),
+      CreateItemTool(self)
     ]
     
     self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
