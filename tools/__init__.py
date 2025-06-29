@@ -23,3 +23,20 @@ class CreateProjectTool(BaseTool):
         result = ProjectManagement.create(name)
         self._agent.change_project(name)
         return result
+
+class CreateItemTool(BaseTool):
+    name: str = "create_project_item"
+    description: str = "Create a new item in project"
+    args_schema: Type[BaseModel] = CreateItemSchema
+
+    _agent: any = PrivateAttr()
+
+    def __init__(self, agent, **kwargs):
+        super().__init__(**kwargs)
+        self._agent = agent
+
+    def _run(self, project: str,itemType:str,itemPath:str,itemName:str) -> any:
+        logging.info(f'[Project:{project}] Creating item: {itemName}')
+        #result = ProjectManagement.create(name)
+        #self._agent.change_project(name)
+        return result
